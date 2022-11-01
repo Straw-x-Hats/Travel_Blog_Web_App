@@ -22,7 +22,8 @@ const PostSchema = new Schema({
        required:true
       },
       date:{
-        type:String,
+        type:mongoose.Types.ObjectId,
+        ref:"User",
         require:true
       }
 })
