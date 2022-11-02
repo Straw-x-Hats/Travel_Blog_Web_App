@@ -3,20 +3,17 @@ const User = require("../model/user");
 const Post= require("../model/post");
 
 const getAllPost = async(req,res,next)=>{
-   let post;
-   let user;
-   try{
-    post = await Post.find().populate('user')
-    user = await post.user;
-    console.log(post)
-    console.log(user)
-   }catch(e){
-    console.log(e);
-   }
-   if(!post){
-    return res.status(404).json({message:"post not available"})
-   }
-   return res.status(200).json({post})
+    let post;
+    try {
+        post= await Post.find().populate('user');
+    } catch (error) {
+        console.log(error);
+    }
+    if(!post){
+        return res.status(404).json({message:"blogs not found"});
+    }
+    return res.status(200).json({post})
+
 }
 
 const addPost =async(req,res,next)=>{
@@ -90,13 +87,11 @@ const deletPost = async(req,res,next)=>{
    
 
     try {
-        post = await Post.findById(id).populate('user')
+        post  = await Post.findByIdAndDelete(id).populate('user')
         console.log(post)
-        // await post.user.posts.pull(post)
-        // await post.user.save()
-        // post = await Post.findByIdAndDelete(id)
-        
-        
+        await post.user.posts.pull(post)
+        await post.user.save()
+      
     
     } catch (error) {
         console.log(error);
