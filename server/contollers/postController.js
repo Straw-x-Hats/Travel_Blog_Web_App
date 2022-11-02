@@ -1,10 +1,15 @@
-const Post= require("../model/post");
+const { default: mongoose } = require("mongoose");
 const User = require("../model/user");
-const mongoose = require("mongoose")
+const Post= require("../model/post");
+
 const getAllPost = async(req,res,next)=>{
    let post;
+   let user;
    try{
-    post = await Post.find()
+    post = await Post.find().populate('user')
+    user = await post.user;
+    console.log(post)
+    console.log(user)
    }catch(e){
     console.log(e);
    }
@@ -50,7 +55,8 @@ const getPostById = async(req,res,next)=>{
     let post;
     const id = req.params.id;
     try{
-        post = await Post.findById(id)
+        post = await Post.findById(id).populate('user')
+        console.log(post)
     }catch(e){
         console.log(e);
     }
@@ -81,9 +87,16 @@ const update = async(req,res,next)=>{
 const deletPost = async(req,res,next)=>{
     const id =req.params.id
     let post;
+   
 
     try {
-    post =    await Post.findByIdAndDelete(id)
+        post = await Post.findById(id).populate('user')
+        console.log(post)
+        // await post.user.posts.pull(post)
+        // await post.user.save()
+        // post = await Post.findByIdAndDelete(id)
+        
+        
     
     } catch (error) {
         console.log(error);

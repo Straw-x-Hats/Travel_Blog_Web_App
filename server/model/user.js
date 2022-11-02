@@ -16,6 +16,6 @@ const userSchema = new Schema({
         type:String,
         required:true
       },
-      posts:[{type:mongoose.Types.ObjectId,ref:"Post"}]
+      posts:[{type:mongoose.Types.ObjectId,ref:"Post",require:"true"}]
 })
 module.exports = mongoose.model("User",userSchema);

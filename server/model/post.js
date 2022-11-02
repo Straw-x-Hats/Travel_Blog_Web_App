@@ -13,10 +13,7 @@ const PostSchema = new Schema({
       type:String,
       require:true,
     },
-    user:{
-        type:String,
-        require:true,
-      },
+   
       location:{
        type:String,
        required:true
@@ -25,6 +22,10 @@ const PostSchema = new Schema({
         type:mongoose.Types.ObjectId,
         ref:"User",
         require:true
-      }
+      },
+      user:{
+        type:String,
+        require:true,
+      },
 })
 module.exports=mongoose.model("Post",PostSchema);

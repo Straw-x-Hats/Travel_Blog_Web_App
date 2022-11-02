@@ -6,8 +6,7 @@ postRouter.get('/',getAllPost)
 postRouter.get('/:id',getPostById)
 postRouter.post('/add',addPost)
 postRouter.put('/:id',update)
-postRouter.delete('/:id',deletPost
-)
+// postRouter.get('/:id',deletPost)
 
 
 module.exports =postRouter
