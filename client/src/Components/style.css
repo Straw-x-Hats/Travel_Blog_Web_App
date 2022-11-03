@@ -1,0 +1,29 @@
+img{
+    width: 100vw;
+    height:70vh ;
+}
+.home{
+    position: relative;
+    text-align: center;
+    
+}
+.text{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-family: 'fantasy';
+    color: aliceblue;
+    font-weight: 900;
+}
+p{
+    font-size: 30px;
+    font-family: 'oswald';
+    font-weight: 500;
+}
+.btn{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
