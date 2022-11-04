@@ -59,3 +59,31 @@ ul{
     width:50vw;
     box-shadow: 5px 5px 10px rgb(226, 197, 92);
 }
+.form{
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 5px;
+    box-shadow: 10px 10px 5px #d8d8eb;
+    height: 500px;
+    background: rgba(27, 23, 107, 0.363);
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  
+    
+}
+form{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+   
+   
+}
