@@ -1,8 +1,20 @@
 import React from 'react'
 
-function DiaryItem() {
+function DiaryItem(props) {
+  const{title,description,image,location,date,user}=props.post
   return (
-    <div>DiaryItem</div>
+    <div>
+      <div className='blog'>
+        <div className='cards'>
+          <h2>{title}</h2>
+          <img src={image} ></img>
+          <h2>{description}</h2>
+          <h3> {user.name}</h3>
+          <h3>{location}</h3>
+          <p>{date}</p>
+        </div>
+      </div>
+    </div>
   )
 }
 
