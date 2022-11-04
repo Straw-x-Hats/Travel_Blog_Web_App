@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import DiaryItem from './DiaryItem'
+import './style.css'
+
 function Diaries() {
    
   const [post, setpost] = useState()
@@ -22,15 +24,15 @@ function Diaries() {
     
 
   return (
-    <div>
-    
+    <div className='main'>
+    <ul>
     {post && post.map((post,i)=>{
       return(
 
         <DiaryItem post={post}/>
       )
     })}
-
+</ul>
     </div>
   )
 }
