@@ -19,7 +19,7 @@ function Auth() {
         <TextField name='email'   type={'email'} placeholder='email' sx={{width:400}}/>
         <TextField name='password'   type={'password'} placeholder='password' sx={{width:400}}/>
         <Button type='submit' variant='contained' color='warning'>Submit</Button>
-        <Button  variant='outlined' onClick={()=>{setisSignUp(!isSignUp)}} >Change to {isSignUp? "Login":"SignUp"}</Button>
+        <Button  variant='outlined' onClick={()=>{setisSignUp(!isSignUp)}} >Change to {isSignUp? "SignUp":"Login"}</Button>
        
       </Box>
       </form>
