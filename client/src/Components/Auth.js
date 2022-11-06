@@ -6,9 +6,10 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import { authActions } from '../store'
 function Auth() {
   const isLoggedIn  = useSelector((state)=>state.isLoggedIn)
-
+  const dispatch = useDispatch()
   console.log(isLoggedIn)
   const [isSignUp, setisSignUp] = useState(false)
   const [input, setinput] = useState({
@@ -26,13 +27,13 @@ function Auth() {
  const handleSubmit =(e)=>{
   e.preventDefault()
   if(!isSignUp){
-    sendRequest("signup").then((data)=>console.log(data))
-    
+    sendRequest("signup").then((data)=>console.log(data)).then(()=>dispatch(authActions.login()))
+    .then((data)=>localStorage.setItem("userId",data.user._id))
     .catch((e)=>console.log(e))
   }
   else{
-    sendRequest().then((data)=>console.log(data))
-    .catch((e)=>console.log(e))
+    sendRequest().then((data)=>console.log(data.id)).then(()=>dispatch(authActions.login()))
+    .catch((e)=>console.log(e)).then((data)=>localStorage.setItem("userId",data.id))
   }
  
  }
