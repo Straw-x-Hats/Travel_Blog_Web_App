@@ -5,9 +5,10 @@ import './style.css'
 import axios from 'axios'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-
+import { useDispatch } from 'react-redux'
 function Auth() {
   const isLoggedIn  = useSelector((state)=>state.isLoggedIn)
+
   console.log(isLoggedIn)
   const [isSignUp, setisSignUp] = useState(false)
   const [input, setinput] = useState({
