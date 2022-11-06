@@ -7,7 +7,9 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { authActions } from '../store'
+import { useNavigate } from 'react-router-dom'
 function Auth() {
+  const navigate = useNavigate()
   const isLoggedIn  = useSelector((state)=>state.isLoggedIn)
   const dispatch = useDispatch()
   console.log(isLoggedIn)
@@ -35,6 +37,7 @@ function Auth() {
   }
   else{
     sendRequest().then((data)=>localStorage.setItem("userId",data.user._id))
+    .then(()=>navigate("/diary"))
     .then(()=>dispatch(authActions.login()))
     .catch((e)=>console.log(e))
   }
