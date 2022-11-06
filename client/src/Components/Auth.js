@@ -27,13 +27,16 @@ function Auth() {
  const handleSubmit =(e)=>{
   e.preventDefault()
   if(!isSignUp){
-    sendRequest("signup").then((data)=>console.log(data)).then(()=>dispatch(authActions.login()))
-    .then((data)=>localStorage.setItem("userId",data.user._id))
+    sendRequest("signup").then((data)=>localStorage.setItem("userId",data.user._id))
+    .then(()=>dispatch(authActions.login()))
+    .then((data)=>console.log(data))
+    
     .catch((e)=>console.log(e))
   }
   else{
-    sendRequest().then((data)=>console.log(data.id)).then(()=>dispatch(authActions.login()))
-    .catch((e)=>console.log(e)).then((data)=>localStorage.setItem("userId",data.id))
+    sendRequest().then((data)=>localStorage.setItem("userId",data.user._id))
+    .then(()=>dispatch(authActions.login()))
+    .catch((e)=>console.log(e))
   }
  
  }

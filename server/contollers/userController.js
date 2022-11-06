@@ -57,7 +57,7 @@ const login=async(req,res,next)=>{
     }
     const isPasswordCorrect = bcrypt.compareSync(password,existingUser.password);
     if(isPasswordCorrect){
-        return res.status(200).json({message:"successfully loggedin",id:existingUser._id} )
+        return res.status(200).json({message:"successfully loggedin",user:existingUser} )
     }
     return res.status(404).json({message:"passwors is incorrect"})
 }
