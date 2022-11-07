@@ -7,7 +7,7 @@ import DiaryItem from './DiaryItem'
 import './style.css'
 
 function Diaries() {
-   
+   //isloggedin
   const [post, setpost] = useState()
 
 
@@ -19,7 +19,7 @@ function Diaries() {
     useEffect(() => {
       
       getAllPost().then((data)=>setpost(data.post))
-      console.log(post)
+     
     }, [])
     
 
@@ -28,8 +28,9 @@ function Diaries() {
     <ul>
     {post && post.map((post,i)=>{
       return(
-
+  
         <DiaryItem post={post}/>
+        
       )
     })}
 </ul>

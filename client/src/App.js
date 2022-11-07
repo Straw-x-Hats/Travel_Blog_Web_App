@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import Profile from './Components/Profile';
+import Update from './Components/Update';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/auth' element={<Auth/>}></Route>
       <Route path='/add' element={<Add/>}></Route>
       <Route path='/profile' element={<Profile/>}></Route>
+      <Route path='/post/:id' element={<Update/>}></Route>
      </Routes>
     </div>
   );
