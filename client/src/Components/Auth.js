@@ -19,7 +19,7 @@ function Auth() {
     email:'',
     password:''
   })
-
+ console.log("ok")
   const handleChange=(e)=>{
     setinput(prev=>({
      ...prev,[e.target.name]:[e.target.value]
