@@ -19,11 +19,11 @@ function Header() {
             <Tabs value={value} onChange={(e,val)=>{
              setvalue(val)
         }} sx={{ml:"auto"}}  >
-       <Tab LinkComponent={Link} to="/" label="Home"/>
-           {isLoggedIn && <Tab LinkComponent={Link} to="/diary" label="Diarys"/>}
-           {isLoggedIn && <Tab LinkComponent={Link} to="/add" label="Add"/>}
-           {isLoggedIn && <Tab LinkComponent={Link} to="/profile" label="Profile"/>}
-            {!isLoggedIn && <Tab LinkComponent={Link} to="/auth" label="Auth"/>}
+         <Tab LinkComponent={Link} to="/" label="Home"/>
+       {isLoggedIn &&  <Tab LinkComponent={Link} to="/diary" label="Diarys"/>}
+       {isLoggedIn &&  <Tab LinkComponent={Link} to="/add" label="Add"/>}
+       {isLoggedIn &&  <Tab LinkComponent={Link} to="/profile" label="Profile"/>}
+         {!isLoggedIn &&   <Tab LinkComponent={Link} to="/auth" label="Auth"/>}
             </Tabs>
             </Toolbar>
         </AppBar>

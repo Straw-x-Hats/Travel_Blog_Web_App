@@ -101,11 +101,11 @@ const deletPost = async(req,res,next)=>{
     }
     return res.status(200).json({post})
 }
-const getByUserId= async(req,res,next)=>{
+const getUserById= async(req,res,next)=>{
     const userId = req.params.id;
     let userBlogs;
     try {
-        userBlogs= await User.findById(userId).populate('post')
+        userBlogs= await User.findById(userId).populate('posts')
         console.log(userBlogs)
     } catch (error) {
         console.log(error)
@@ -113,9 +113,9 @@ const getByUserId= async(req,res,next)=>{
     }
 
     if(!userBlogs){
-        return res.status(404).json({message:"no blogs found"})
+        return res.status(404).json({message:"user not  found"})
     }
-    return res.status(200).json({blogs:userBlogs})
+    return res.status(200).json({user:userBlogs})
 }
 
 exports.getAllPost=getAllPost
@@ -123,4 +123,4 @@ exports.addPost=addPost
 exports.getPostById=getPostById
 exports.update=update
 exports.deletPost=deletPost
-exports.getByUserId=getByUserId
+exports.getUserById=getUserById

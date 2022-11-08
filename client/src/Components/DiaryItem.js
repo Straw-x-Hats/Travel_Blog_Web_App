@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 import EditIcon from '@mui/icons-material/Edit';
-import { AlertTitle, Icon, IconButton, Snackbar } from '@mui/material';
+import { Alert, AlertTitle, Icon, IconButton, Snackbar } from '@mui/material';
 import { Link,  useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
@@ -17,7 +17,7 @@ function DiaryItem(props) {
   
     .then(()=>navigate("/"))
     .then(()=>navigate("/diary"))
-   
+    setopen(true)
     
     const data = res.data;
     console.log(data);
@@ -48,7 +48,12 @@ function DiaryItem(props) {
       </div>
        
     
-         
+      <Snackbar open={open} autoHideDuration={6000} onClose={()=>setopen(false)}>
+        <Alert onClose={()=>setopen(false)} severity="success" sx={{ width: '100%' }}>
+         Deleted!!!!!!
+        </Alert>
+     </Snackbar>
+
           
     </div>
     
